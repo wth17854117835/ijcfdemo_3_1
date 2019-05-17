@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
+    <groupId>com.sitech</groupId>
+    <artifactId>testijcfdemo_3_1_5</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>testijcfdemo_3_1_5</name>
+    <description>Demo project for Spring Boot</description>
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>com.sitech.ijcf</groupId>
+        <artifactId>ijcf-boot-dependencies</artifactId>
+        <version>3.1.5.RELEASE</version>
+    </parent>
+
+    <!--统一管理版本信息-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <springcloud.version>Dalston.SR3</springcloud.version>
+        <jcfboot.version>3.1.5.RELEASE</jcfboot.version>
+    </properties>
+
+    <modules>
+        <module>testcustservice</module>
+        <module>testeurekaserver</module>
+        <module>testclientservice</module>
+        <module>testserviceflow</module>
+    </modules>
+
+    <dependencies>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.sitech.ijcf</groupId>
+                <artifactId>ijcf-boot-dependencies</artifactId>
+                <version>${jcfboot.version}</version>
+                <!-- scope=import只能用在dependencyManagement里面,且仅用于type=pom的dependency -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

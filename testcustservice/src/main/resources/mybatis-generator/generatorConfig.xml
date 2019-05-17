@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--导入属性配置 -->
+	<!--<properties resource="generator.properties"></properties>-->
+
+	<!--数据库驱动的位置-->
+	<classPathEntry
+			location="D:\Program Files\development\dingjiurepSSH\dingjiurepository\mysql\mysql-connector-java\5.1.41\mysql-connector-java-5.1.41.jar"/>
+	<context id="my" targetRuntime="MyBatis3" defaultModelType="flat">
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+			<property name="suppressAllComments" value="false"/>
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://localhost:3306/jcf3_db"
+						userId="root"
+						password="root"/>
+
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.sitech.demo.domain"
+							targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.sitech.demo.mapper"
+						 targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="com.sitech.demo.mapper"
+							 targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true"/>
+
+		</javaClientGenerator>
+
+		<table tableName="fruit" modelType="flat"
+			   enableCountByExample="true"
+			   enableUpdateByExample="true"
+			   enableDeleteByExample="true"
+			   enableSelectByExample="true"
+			   selectByExampleQueryId="true">
+<!--			<columnOverride column="UPDATEDATE">
+&lt;!&ndash; 				 javaType用于指定生成的domain的属性类型，使用类型的全限定名 &ndash;&gt;
+&lt;!&ndash; 				<property name="javaType" value="java.time.LocalDateTime"/> &ndash;&gt;
+
+&lt;!&ndash; 				 jdbcType用于指定该列的JDBC类型 &ndash;&gt;
+				<property name="jdbcType" value="TIMESTAMP"/>
+			</columnOverride>
+			<columnOverride column="CREATEDATE">
+				<property name="jdbcType" value="TIMESTAMP"/>
+			</columnOverride>
+			<columnOverride column="DEALTIME">
+				<property name="jdbcType" value="TIMESTAMP"/>
+			</columnOverride>-->
+		</table>
+
+	</context>
+</generatorConfiguration>

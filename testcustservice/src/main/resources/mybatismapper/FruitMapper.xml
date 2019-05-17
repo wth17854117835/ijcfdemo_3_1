@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sitech.testcustservice.mapper.FruitMapper">
+    <resultMap id="fruitMap" type="com.sitech.testcustservice.domain.Fruit">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="apple" jdbcType="VARCHAR" property="apple" />
+        <result column="banana" jdbcType="VARCHAR" property="banana" />
+        <result column="pear" jdbcType="VARCHAR" property="pear" />
+    </resultMap>
+
+    <select id="select" parameterType="int" resultMap="fruitMap">
+        select * from fruits where 1=1
+        <if test="id !=null">
+            and id = #{id}
+        </if>
+    </select>
+
+</mapper>
